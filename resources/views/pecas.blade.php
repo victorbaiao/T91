@@ -82,12 +82,6 @@
         <tbody>
 
         <tr>
-            <th>{{ $pecas->id }}</th>
-            <th>{{ $pecas->nome }}</th>
-            <th>{{ $pecas->criar }}</th>
-            <th>{{ $pecas->editar  }}</th>
-            <th>{{ $pecas->excluir }}</th>
-
       </tr>
      @endforeach
     </tbody>

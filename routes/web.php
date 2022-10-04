@@ -14,23 +14,17 @@ use App\Http\Controllers\PecasController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-
-    Route::get('/pecas/{name}', function($name){return view('pecas',['nomePecas'=>$name]);
-    Route::get('/pecas/{name}', function($name){return view('pecas',['anoPecas'=>$name]);
-    Route::get('/pecas/{name}', function($name){return view('pecas',['descricaoPecas'=>$name]);
-    Route::get('/pecas/{name}', function($name){return view('pecas',['valorPecas'=>$name]);
-});
-
-
-
 
     Route::prefix('pecas.blade.php')
     ->middleware(['auth'])
     ->controller(PecasController::class)
     ->group(function () {
-        Route::get('/' , 'nome')->name('pecas.nome');
+        Route::get('/pecas/{name}', function($name){return view('pecas',['nomePecas'=>$name]);
+        Route::get('/pecas/{name}', function($name){return view('pecas',['anoPecas'=>$name]);
+        Route::get('/pecas/{name}', function($name){return view('pecas',['descricaoPecas'=>$name]);
+        Route::get('/pecas/{name}', function($name){return view('pecas',['valorPecas'=>$name]);
+
+        Route::get('/' , 'name')->name('pecas.name');
         Route::get('/novo', 'create')->name('pecas.create');
         Route::get('/editar/{id}', 'edit')->name('pecas.edit');
         Route::post('/deletar/{id}', 'destroy')->name('pecas.destroy');
